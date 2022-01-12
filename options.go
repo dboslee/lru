@@ -1,8 +1,5 @@
 package lru
 
-type k comparable
-type v any
-
 const (
 	// DefaultCacity is the default cache capacity
 	DefaultCapacity = 10000
@@ -33,7 +30,7 @@ type options struct {
 	capacity int
 }
 
-// defaultOptions
+// defaultOptions returns options with default values set.
 func defaultOptions() *options {
 	return &options{
 		capacity: DefaultCapacity,

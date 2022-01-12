@@ -7,7 +7,7 @@ Basic usage.
 func main() {
     cache := lru.New[string, string]()
     cache.Set("key", "value")
-    value := cache.Get("key")
+    value, _ := cache.Get("key")
     fmt.Println(value)
 }
 ```

@@ -25,7 +25,7 @@ func NewSync[K comparable, V any](options ...CacheOption) *SyncCache[K, V] {
 func (c *SyncCache[K, V]) Len() int {
 	c.mu.RLock()
 	defer c.mu.RUnlock()
-	return c.Len()
+	return c.cache.Len()
 }
 
 // Set the given key value pair.
@@ -48,7 +48,7 @@ func (c *SyncCache[K, V]) Get(key K) (value V, ok bool) {
 func (c *SyncCache[K, V]) Peek(key K) (value V, ok bool) {
 	c.mu.RLock()
 	defer c.mu.RUnlock()
-	return c.Peek(key)
+	return c.cache.Peek(key)
 }
 
 // Delete an item from the cache.
